@@ -1,0 +1,6 @@
+.vagrant/
+.DS_store
+admin.conf
+join.sh
+kubeadmin.out
+*.log
