@@ -4,3 +4,4 @@ admin.conf
 join.sh
 kubeadmin.out
 *.log
+*/
