@@ -3,10 +3,10 @@
 
 /vagrant/ubuntu.sh
 
-sudo kubeadm init --apiserver-advertise-address 172.16.0.10 | tee /vagrant/kubeadmin.out
+kubeadm init --apiserver-advertise-address 172.16.0.10 | tee /vagrant/kubeadmin.out
 grep "kubeadm join" /vagrant/kubeadmin.out > /vagrant/join.sh
 chmod +x /vagrant/join.sh
-sudo cp /etc/kubernetes/admin.conf /vagrant/
+cp /etc/kubernetes/admin.conf /vagrant/
 
 cat << EOT >> ~/.profile
 export KUBECONFIG=/vagrant/admin.conf
@@ -38,4 +38,4 @@ do
 done
 
 # install ddashboard
-kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml

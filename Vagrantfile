@@ -3,7 +3,7 @@
 
 master=1
 master_ip="172.16.0.10"
-nodes=2
+nodes=1
 nodes_cidr="172.16.0.10"
 
 Vagrant.configure("2") do |config|
@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
       node.vm.network "private_network", ip: "#{nodes_cidr}#{i}"
       node.vm.provision "shell", path: "node.sh"
       node.vm.provider :virtualbox do |vb|
-        vb.customize [ "modifyvm", :id, "--memory", "1538" ]
+        vb.customize [ "modifyvm", :id, "--memory", "1024" ]
       end
     end
   end
